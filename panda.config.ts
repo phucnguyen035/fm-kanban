@@ -146,11 +146,16 @@ const backgroundColorTransparentize = defineUtility({
 });
 
 export default defineConfig({
+  outExtension: "js",
   // Whether to use css reset
   preflight: true,
 
   // Where to look for your css declarations
-  include: ["./src/**/*.{js,jsx,ts,tsx}", "./pages/**/*.{js,jsx,ts,tsx}"],
+  include: [
+    "./app/root.tsx",
+    "./app/routes/**/*.{ts,tsx,js,jsx}",
+    "./app/components/**/*.{ts,tsx,js,jsx}",
+  ],
 
   // Files to exclude
   exclude: [],
@@ -172,8 +177,6 @@ export default defineConfig({
     extend: { tokens, textStyles, keyframes },
   },
 
-  // The output directory for your css system
   outdir: "styled-system",
-
-  jsxFramework: "solid",
+  jsxFramework: "react",
 });
