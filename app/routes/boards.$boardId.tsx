@@ -45,7 +45,11 @@ export default function BoardDetailPage() {
           {board.columns.map((column) => (
             <li
               key={column.id}
-              className={vstack({ alignItems: "start", gap: 6 })}
+              className={vstack({
+                alignItems: "start",
+                gap: 6,
+                minWidth: 280,
+              })}
             >
               <h2
                 className={css({
@@ -81,12 +85,15 @@ export default function BoardDetailPage() {
                 height: "100%",
                 bg: "linear-gradient(180deg, #E9EFFA 0%, rgba(233, 239, 250, 0.50) 100%)",
                 cursor: "pointer",
+                textStyle: "headingXL",
+                textTransform: "capitalize",
+                color: "grey.medium",
               })}
               onClick={() => {
                 // TODO: Implement
               }}
             >
-              +New column
+              + New column
             </button>
           </li>
         </ul>
