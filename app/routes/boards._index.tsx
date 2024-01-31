@@ -1,4 +1,4 @@
-import { redirect } from "@remix-run/node";
+import { redirect } from "@vercel/remix";
 import { boardRepo } from "~/.server/data-access/board";
 
 export async function loader() {

@@ -20,6 +20,9 @@ dependencies:
   '@remix-run/serve':
     specifier: ^2.5.1
     version: 2.5.1(typescript@5.3.3)
+  '@vercel/remix':
+    specifier: ^2.5.1
+    version: 2.5.1(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
   dotenv:
     specifier: ^16.4.1
     version: 16.4.1
@@ -2346,6 +2349,22 @@ packages:
   /@vanilla-extract/private@1.0.3:
     resolution: {integrity: sha512-17kVyLq3ePTKOkveHxXuIJZtGYs+cSoev7BlP+Lf4916qfDhk/HBjvlYDe8egrea7LNPHKwSZJK/bzZC+Q6AwQ==}
     dev: true
+
+  /@vercel/remix@2.5.1(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3):
+    resolution: {integrity: sha512-b38Av3htXlF5L/Gy0vufWtSPLQOCKTYGLANWIrpLnB2m3Ro8Q56SgkBE1iMqVnHQ6A32fyAXg9y0BrVRRLhy6A==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      react: '*'
+      react-dom: '*'
+    dependencies:
+      '@remix-run/node': 2.5.1(typescript@5.3.3)
+      '@remix-run/server-runtime': 2.5.1(typescript@5.3.3)
+      isbot: 3.8.0
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    transitivePeerDependencies:
+      - typescript
+    dev: false
 
   /@vue/compiler-core@3.3.4:
     resolution: {integrity: sha512-cquyDNvZ6jTbf/+x+AgM2Arrp6G4Dzbb0R64jiG804HRMfRiFXWI6kqUVqZ6ZR0bQhIoQjB4+2bhNtVwndW15g==}
@@ -5015,6 +5034,11 @@ packages:
   /isarray@2.0.5:
     resolution: {integrity: sha512-xHjhDr3cNBK0BzdUJSPXZntQUx/mwMS5Rw4A7lPJ90XGAO6ISP/ePDNuo0vhqOZU+UD5JoodwCAAoZQd3FeAKw==}
     dev: true
+
+  /isbot@3.8.0:
+    resolution: {integrity: sha512-vne1mzQUTR+qsMLeCBL9+/tgnDXRyc2pygLGl/WsgA+EZKIiB5Ehu0CiVTHIIk30zhJ24uGz4M5Ppse37aR0Hg==}
+    engines: {node: '>=12'}
+    dev: false
 
   /isbot@4.4.0:
     resolution: {integrity: sha512-8ZvOWUA68kyJO4hHJdWjyreq7TYNWTS9y15IzeqVdKxR9pPr3P/3r9AHcoIv9M0Rllkao5qWz2v1lmcyKIVCzQ==}
