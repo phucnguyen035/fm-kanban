@@ -3,6 +3,7 @@ import { Suspense, useState } from "react";
 import { css, cx } from "styled-system/css";
 import { stack } from "styled-system/patterns";
 import { boardRepo } from "~/.server/data-access/board";
+import IconShowSidebar from "~/components/IconShowSidebar";
 
 export async function loader() {
   return defer({
@@ -22,7 +23,7 @@ export default function BoardsLayout() {
         css({
           position: "relative",
           display: "grid",
-          minH: "100dvh",
+          height: "100dvh",
           gridTemplateAreas: `
         "nav header"
         "nav app"
@@ -87,20 +88,24 @@ export default function BoardsLayout() {
         <button
           aria-label="Show sidebar"
           className={css({
+            bgColor: {
+              base: "purple.base",
+              _hover: "purple.light",
+            },
             position: "absolute",
             bottom: 8,
             opacity: 1,
             width: 14,
             height: 12,
             borderEndRadius: "100%",
-            bgColor: {
-              base: "purple.base",
-              _hover: "purple.light",
-            },
+            display: "grid",
+            placeItems: "center",
+            cursor: "pointer",
+            transition: "background",
           })}
           onClick={() => setIsNavCollapsed(false)}
         >
-          👁️
+          <IconShowSidebar />
         </button>
       )}
 
