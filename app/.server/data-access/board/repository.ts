@@ -6,6 +6,7 @@ export async function getBoardList() {
       id: true,
       name: true,
     },
+    orderBy: (board, { asc }) => asc(board.id),
   });
 }
 
@@ -33,7 +34,7 @@ export async function getBoardDetailById(id: number) {
   });
 }
 
-export async function getFirstBoardId() {
+export async function getMostRecentBoardId() {
   const board = await db.query.board.findFirst({
     columns: {
       id: true,
