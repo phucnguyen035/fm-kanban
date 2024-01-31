@@ -25,6 +25,7 @@ export async function getBoardDetailById(id: number) {
         with: {
           tasks: {
             columns: {
+              id: true,
               title: true,
             },
           },
