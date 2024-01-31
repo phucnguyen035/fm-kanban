@@ -25,9 +25,9 @@ export default function BoardsLayout() {
           display: "grid",
           height: "100dvh",
           gridTemplateAreas: `
-        "nav header"
-        "nav app"
-    `,
+            "nav header"
+            "nav app"
+          `,
           gridTemplateRows: [
             "token(spacing.16) 1fr",
             "token(spacing.20) 1fr",
