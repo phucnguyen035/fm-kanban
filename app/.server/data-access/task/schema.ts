@@ -16,6 +16,7 @@ export const taskStatusEnum = pgEnum("task_status_enum", [
   "doing",
   "done",
 ]);
+export type TaskStatus = (typeof taskStatusEnum.enumValues)[number];
 
 export const task = pgTable(
   "tasks",
