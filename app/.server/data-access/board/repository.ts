@@ -28,6 +28,13 @@ export async function getBoardDetailById(id: number) {
               id: true,
               title: true,
             },
+            with: {
+              subTasks: {
+                columns: {
+                  status: true,
+                },
+              },
+            },
           },
         },
       },
