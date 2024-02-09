@@ -1,5 +1,5 @@
+import type { LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import type { LoaderFunctionArgs } from "@vercel/remix";
 import { css } from "styled-system/css";
 import { hstack, vstack } from "styled-system/patterns";
 import invariant from "tiny-invariant";

@@ -20,9 +20,6 @@ dependencies:
   '@remix-run/serve':
     specifier: ^2.6.0
     version: 2.6.0(typescript@5.3.3)
-  '@vercel/remix':
-    specifier: ^2.5.1
-    version: 2.5.1(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
   dotenv:
     specifier: ^16.4.1
     version: 16.4.1
@@ -70,9 +67,6 @@ devDependencies:
   '@typescript-eslint/eslint-plugin':
     specifier: ^6.21.0
     version: 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.56.0)(typescript@5.3.3)
-  '@vercel/remix-run-dev':
-    specifier: ^2.5.1
-    version: 2.5.1(@remix-run/serve@2.6.0)(typescript@5.3.3)(vite@5.1.1)
   drizzle-kit:
     specifier: ^0.20.14
     version: 0.20.14
@@ -1842,25 +1836,6 @@ packages:
       express: 4.18.2
       typescript: 5.3.3
 
-  /@remix-run/node@2.5.1(typescript@5.3.3):
-    resolution: {integrity: sha512-UI442xzHAiokmsfrYOabMQB024+IizmRhZBGcNa42QjJWsNqogy1bNwYhzEpB6oQEB1wF3vwOKK1AD1/iYA/9A==}
-    engines: {node: '>=18.0.0'}
-    peerDependencies:
-      typescript: ^5.1.0
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@remix-run/server-runtime': 2.5.1(typescript@5.3.3)
-      '@remix-run/web-fetch': 4.4.2
-      '@remix-run/web-file': 3.1.0
-      '@remix-run/web-stream': 1.1.0
-      '@web3-storage/multipart-parser': 1.0.0
-      cookie-signature: 1.2.1
-      source-map-support: 0.5.21
-      stream-slice: 0.1.2
-      typescript: 5.3.3
-
   /@remix-run/node@2.6.0(typescript@5.3.3):
     resolution: {integrity: sha512-bWemy3g258Kdqi+4OxIEZ7QS64T96jNK6a7NdlPXGJZqeLpxM5NmlCl/slSdx52oTi9r5Xoz1Tm4uR37nD1/Xw==}
     engines: {node: '>=18.0.0'}
@@ -1900,10 +1875,6 @@ packages:
       typescript: 5.3.3
     dev: false
 
-  /@remix-run/router@1.14.2:
-    resolution: {integrity: sha512-ACXpdMM9hmKZww21yEqWwiLws/UPLhNKvimN8RrYSqPSvB3ov7sLvAcfvaxePeLvccTQKGdkDIhLYApZVDFuKg==}
-    engines: {node: '>=14.0.0'}
-
   /@remix-run/router@1.15.0:
     resolution: {integrity: sha512-HOil5aFtme37dVQTB6M34G95kPM3MMuqSmIRVCC52eKV+Y/tGSqw9P3rWhlAx6A+mz+MoX+XxsGsNJbaI5qCgQ==}
     engines: {node: '>=14.0.0'}
@@ -1924,23 +1895,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
       - typescript
-
-  /@remix-run/server-runtime@2.5.1(typescript@5.3.3):
-    resolution: {integrity: sha512-bP31jrVbYTJ2eP5sxZfDgT1YyXzDlzsfMxGYVzpaoLCYDJAekq1QpHLLXKGOXhmyb46O9rdhlQKfwD6WpAxr3A==}
-    engines: {node: '>=18.0.0'}
-    peerDependencies:
-      typescript: ^5.1.0
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@remix-run/router': 1.14.2
-      '@types/cookie': 0.6.0
-      '@web3-storage/multipart-parser': 1.0.0
-      cookie: 0.6.0
-      set-cookie-parser: 2.6.0
-      source-map: 0.7.4
-      typescript: 5.3.3
 
   /@remix-run/server-runtime@2.6.0(typescript@5.3.3):
     resolution: {integrity: sha512-qFXDl4pK55njBLuvyRn5AkI/hu8fEU3t1XFKv0Syivx0nmUVpWMW25Uzi1pkX/chF1VIxCVrZ8KuQ1rcrKj+DQ==}
@@ -2404,109 +2358,6 @@ packages:
   /@vanilla-extract/private@1.0.3:
     resolution: {integrity: sha512-17kVyLq3ePTKOkveHxXuIJZtGYs+cSoev7BlP+Lf4916qfDhk/HBjvlYDe8egrea7LNPHKwSZJK/bzZC+Q6AwQ==}
     dev: true
-
-  /@vercel/remix-run-dev@2.5.1(@remix-run/serve@2.6.0)(typescript@5.3.3)(vite@5.1.1):
-    resolution: {integrity: sha512-1GyE8L+jGOKGRBvyiQi4b0VnwrhTSf6fS+Tcwt/JqIcudW0ZaQgcDP1x3qkXUR68TPLapk4V5cacde7h57ICCA==}
-    engines: {node: '>=18.0.0'}
-    hasBin: true
-    peerDependencies:
-      '@remix-run/serve': ^2.5.1
-      typescript: ^5.1.0
-      vite: ^5.0.0
-    peerDependenciesMeta:
-      '@remix-run/serve':
-        optional: true
-      typescript:
-        optional: true
-      vite:
-        optional: true
-    dependencies:
-      '@babel/core': 7.23.9
-      '@babel/generator': 7.23.6
-      '@babel/parser': 7.23.9
-      '@babel/plugin-syntax-decorators': 7.23.3(@babel/core@7.23.9)
-      '@babel/plugin-syntax-jsx': 7.23.3(@babel/core@7.23.9)
-      '@babel/preset-typescript': 7.23.3(@babel/core@7.23.9)
-      '@babel/traverse': 7.23.9
-      '@babel/types': 7.23.9
-      '@mdx-js/mdx': 2.3.0
-      '@npmcli/package-json': 4.0.1
-      '@remix-run/node': 2.5.1(typescript@5.3.3)
-      '@remix-run/router': 1.14.2
-      '@remix-run/serve': 2.6.0(typescript@5.3.3)
-      '@remix-run/server-runtime': 2.5.1(typescript@5.3.3)
-      '@types/mdx': 2.0.11
-      '@vanilla-extract/integration': 6.5.0
-      arg: 5.0.2
-      cacache: 17.1.4
-      chalk: 4.1.2
-      chokidar: 3.6.0
-      cross-spawn: 7.0.3
-      dotenv: 16.4.1
-      es-module-lexer: 1.4.1
-      esbuild: 0.17.6
-      esbuild-plugins-node-modules-polyfill: 1.6.2(esbuild@0.17.6)
-      execa: 5.1.1
-      exit-hook: 2.2.1
-      express: 4.18.2
-      fs-extra: 10.1.0
-      get-port: 5.1.1
-      gunzip-maybe: 1.4.2
-      jsesc: 3.0.2
-      json5: 2.2.3
-      lodash: 4.17.21
-      lodash.debounce: 4.0.8
-      minimatch: 9.0.3
-      ora: 5.4.1
-      picocolors: 1.0.0
-      picomatch: 2.3.1
-      pidtree: 0.6.0
-      postcss: 8.4.35
-      postcss-discard-duplicates: 5.1.0(postcss@8.4.35)
-      postcss-load-config: 4.0.2(postcss@8.4.35)
-      postcss-modules: 6.0.0(postcss@8.4.35)
-      prettier: 2.8.8
-      pretty-ms: 7.0.1
-      react-refresh: 0.14.0
-      remark-frontmatter: 4.0.1
-      remark-mdx-frontmatter: 1.1.1
-      semver: 7.6.0
-      set-cookie-parser: 2.6.0
-      tar-fs: 2.1.1
-      tsconfig-paths: 4.2.0
-      typescript: 5.3.3
-      vite: 5.1.1
-      ws: 7.5.9
-    transitivePeerDependencies:
-      - '@types/node'
-      - bluebird
-      - bufferutil
-      - less
-      - lightningcss
-      - sass
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - ts-node
-      - utf-8-validate
-    dev: true
-
-  /@vercel/remix@2.5.1(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3):
-    resolution: {integrity: sha512-b38Av3htXlF5L/Gy0vufWtSPLQOCKTYGLANWIrpLnB2m3Ro8Q56SgkBE1iMqVnHQ6A32fyAXg9y0BrVRRLhy6A==}
-    engines: {node: '>=18.0.0'}
-    peerDependencies:
-      react: '*'
-      react-dom: '*'
-    dependencies:
-      '@remix-run/node': 2.5.1(typescript@5.3.3)
-      '@remix-run/server-runtime': 2.5.1(typescript@5.3.3)
-      isbot: 3.8.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - typescript
-    dev: false
 
   /@vue/compiler-core@3.3.4:
     resolution: {integrity: sha512-cquyDNvZ6jTbf/+x+AgM2Arrp6G4Dzbb0R64jiG804HRMfRiFXWI6kqUVqZ6ZR0bQhIoQjB4+2bhNtVwndW15g==}
@@ -5209,11 +5060,6 @@ packages:
   /isarray@2.0.5:
     resolution: {integrity: sha512-xHjhDr3cNBK0BzdUJSPXZntQUx/mwMS5Rw4A7lPJ90XGAO6ISP/ePDNuo0vhqOZU+UD5JoodwCAAoZQd3FeAKw==}
     dev: true
-
-  /isbot@3.8.0:
-    resolution: {integrity: sha512-vne1mzQUTR+qsMLeCBL9+/tgnDXRyc2pygLGl/WsgA+EZKIiB5Ehu0CiVTHIIk30zhJ24uGz4M5Ppse37aR0Hg==}
-    engines: {node: '>=12'}
-    dev: false
 
   /isbot@4.4.0:
     resolution: {integrity: sha512-8ZvOWUA68kyJO4hHJdWjyreq7TYNWTS9y15IzeqVdKxR9pPr3P/3r9AHcoIv9M0Rllkao5qWz2v1lmcyKIVCzQ==}
