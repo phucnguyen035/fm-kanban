@@ -1,8 +1,9 @@
-import { Await, Outlet, defer, useLoaderData } from "@remix-run/react";
+import { Await, NavLink, Outlet, defer, useLoaderData } from "@remix-run/react";
 import { Suspense, useState } from "react";
 import { css, cx } from "styled-system/css";
-import { stack } from "styled-system/patterns";
+import { hstack, stack, vstack } from "styled-system/patterns";
 import { boardRepo } from "~/.server/data-access/board";
+import IconBoard from "~/components/IconBoard";
 import IconShowSidebar from "~/components/IconShowSidebar";
 
 export async function loader() {
@@ -66,12 +67,57 @@ export default function BoardsLayout() {
                     All boards {boards.length}
                   </h1>
 
-                  <ul>
+                  <ul
+                    className={vstack({
+                      alignItems: "flex-start",
+                      pr: 6,
+                      gap: 0,
+                    })}
+                  >
                     {boards.map((board) => (
-                      <li key={board.id}>
-                        <a href={`/boards/${board.id}`}>{board.name}</a>
+                      <li key={board.id} className={css({ width: "100%" })}>
+                        <NavLink
+                          to={`/boards/${board.id}`}
+                          className={({ isActive }) => {
+                            return hstack({
+                              color: isActive
+                                ? "white"
+                                : {
+                                    base: "grey.medium",
+                                    _hover: "purple.light",
+                                  },
+                              textStyle: "headingM",
+                              gap: 4,
+                              height: 12,
+                              bgColor: isActive ? "purple.base" : undefined,
+                              px: 8,
+                              py: 4,
+                              width: "100%",
+                              borderRightRadius: "full",
+                            });
+                          }}
+                        >
+                          <IconBoard />
+                          {board.name}
+                        </NavLink>
                       </li>
                     ))}
+                    <li className={css({ width: "100%" })}>
+                      <button
+                        className={hstack({
+                          color: "purple.base",
+                          cursor: "pointer",
+                          gap: 4,
+                          px: 8,
+                          py: 4,
+                          textStyle: "headingM",
+                          textTransform: "capitalize",
+                          width: "100%",
+                        })}
+                      >
+                        <IconBoard />+ Create new board
+                      </button>
+                    </li>
                   </ul>
                 </>
               )}
