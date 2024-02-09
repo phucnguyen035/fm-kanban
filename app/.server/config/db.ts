@@ -12,9 +12,6 @@ const client = new Pool({
   connectionString: env.DATABASE_URL,
 });
 
-console.log("client: ", client);
-console.log("env: ", env);
-
 export const db = drizzle(client, {
   schema: {
     ...boardSchema,
@@ -23,5 +20,3 @@ export const db = drizzle(client, {
   },
   logger: !isProd,
 });
-
-console.log("db: ", db);
