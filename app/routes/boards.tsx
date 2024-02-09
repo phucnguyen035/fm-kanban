@@ -5,6 +5,7 @@ import { hstack, stack, vstack } from "styled-system/patterns";
 import { boardRepo } from "~/.server/data-access/board";
 import IconBoard from "~/components/IconBoard";
 import IconShowSidebar from "~/components/IconShowSidebar";
+import Logo from "~/components/Logo";
 
 export async function loader() {
   return defer({
@@ -45,6 +46,7 @@ export default function BoardsLayout() {
       <nav
         className={stack({
           justifyContent: "space-between",
+          pt: 8,
           pb: 12,
           gridArea: "nav",
           overflow: "hidden",
@@ -58,13 +60,42 @@ export default function BoardsLayout() {
           },
         })}
       >
-        <div>
-          <Suspense fallback="Loading...">
+        <div className={vstack({ alignItems: "flex-start", gap: 14 })}>
+          <div className={css({ px: 8 })}>
+            <Logo />
+          </div>
+
+          <Suspense
+            fallback={
+              <div className={vstack({ px: 8, gap: 4, width: "100%" })}>
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className={css({
+                      height: 8,
+                      width: "100%",
+                      bgColor: "grey.light",
+                      borderRadius: "full",
+                      animation: "pulse",
+                    })}
+                  />
+                ))}
+              </div>
+            }
+          >
             <Await resolve={boards}>
               {(boards) => (
-                <>
-                  <h1 className={css({ textTransform: "uppercase" })}>
-                    All boards {boards.length}
+                <div>
+                  <h1
+                    className={css({
+                      textTransform: "uppercase",
+                      px: 8,
+                      color: "grey.medium",
+                      textStyle: "headingS",
+                      mb: 5,
+                    })}
+                  >
+                    All boards ({boards.length})
                   </h1>
 
                   <ul
@@ -119,7 +150,7 @@ export default function BoardsLayout() {
                       </button>
                     </li>
                   </ul>
-                </>
+                </div>
               )}
             </Await>
           </Suspense>
