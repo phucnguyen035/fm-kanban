@@ -7,10 +7,6 @@ export function meta() {
   ];
 }
 
-// export async function loader() {
-//   return redirect("/boards");
-// }
-
-export default function Index() {
-  return <p>Hello world</p>;
+export async function loader() {
+  return redirect("/boards");
 }
