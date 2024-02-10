@@ -19,10 +19,22 @@ export default function TaskCard({ title, subTasks }: Props) {
         bgColor: { base: "white", _dark: "grey.dark" },
         borderRadius: "lg",
         boxShadow: "0px 4px 6px 0px rgba(54, 78, 12y, 0.10)",
+        cursor: "pointer !important",
+        "&:has(h3)": {
+          color: {
+            base: "black",
+            _hover: "purple.base",
+            _dark: {
+              base: "white",
+              _hover: "purple.base",
+            },
+          },
+        },
       })}
     >
       <button
         className={vstack({
+          cursor: "pointer",
           alignItems: "flex-start",
           gap: 2,
           textAlign: "left",
