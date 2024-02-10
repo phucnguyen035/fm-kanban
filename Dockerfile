@@ -32,6 +32,7 @@ RUN pnpm install --frozen-lockfile --prod=false
 COPY --link . .
 
 # Build application
+RUN pnpm panda codegen
 RUN pnpm run build
 
 # Remove development dependencies
