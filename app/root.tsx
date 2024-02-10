@@ -6,6 +6,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
+import "@fontsource-variable/plus-jakarta-sans";
 import "./root.css";
 
 export default function App() {
