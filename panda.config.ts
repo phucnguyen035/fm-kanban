@@ -84,7 +84,7 @@ const textStyles = defineTextStyles({
   bodyL: {
     value: {
       fontWeight: 500,
-      fontSize: 18,
+      fontSize: 13,
       lineHeight: "23px",
     },
   },
