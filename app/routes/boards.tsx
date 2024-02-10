@@ -24,6 +24,10 @@ export default function BoardsLayout() {
       className={cx(
         "group",
         css({
+          bgColor: {
+            base: "white",
+            _dark: "grey.vDark",
+          },
           position: "relative",
           display: "grid",
           height: "100dvh",
@@ -171,7 +175,10 @@ export default function BoardsLayout() {
               gap: 4,
               textStyle: "headingM",
               transition: "colors",
-              color: { base: "grey.medium", _hover: "grey.dark" },
+              color: {
+                base: "grey.medium",
+                _hover: "purple.light",
+              },
               cursor: "pointer",
             })}
             onClick={() => setIsNavCollapsed(true)}
