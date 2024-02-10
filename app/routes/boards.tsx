@@ -52,6 +52,11 @@ export default function BoardsLayout() {
           gridArea: "nav",
           overflow: "hidden",
           transition: "opacity 100ms linear",
+          borderRight: "1px solid",
+          borderRightColor: {
+            base: "lines.light",
+            _dark: "lines.dark",
+          },
           transitionDelay: {
             _groupExpanded: "125ms",
           },

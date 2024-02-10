@@ -18,8 +18,22 @@ export default function BoardDetailPage() {
 
   return (
     <>
-      <header className={css({ gridArea: "header" })}>
-        <h1 className={css({ textTransform: "uppercase" })}>{board.name}</h1>
+      <header
+        className={hstack({
+          gridArea: "header",
+          justifyContent: "space-between",
+          px: 6,
+          borderBottom: "1px solid",
+          borderBottomColor: {
+            base: "lines.light",
+            _dark: "lines.dark",
+          },
+        })}
+      >
+        <h1 className={css({ textStyle: "headingXL" })}>{board.name}</h1>
+        <div>
+          <button>+ Add new task</button>
+        </div>
       </header>
 
       <main
