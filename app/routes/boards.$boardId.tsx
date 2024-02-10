@@ -1,3 +1,4 @@
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import type { LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { useState } from "react";
@@ -8,7 +9,6 @@ import { boardRepo } from "~/.server/data-access/board";
 import Button from "~/components/Button";
 import IconEllipsisVertical from "~/components/IconEllipsisVertical";
 import TaskCard from "~/components/TaskCard";
-import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 
 export function loader({ params }: LoaderFunctionArgs) {
   const boardId = parseInt(params.boardId ?? "");
@@ -60,6 +60,12 @@ export default function BoardDetailPage() {
                   bgColor: { base: "white", _dark: "grey.vDark" },
                   boxShadow: "lg",
                   borderRadius: "sm",
+                  transformOrigin:
+                    "var(--radix-dropdown-menu-content-transform-origin)",
+                  animation: {
+                    _open: "scaleIn 200ms cubic-bezier(0.22, 1, 0.36, 1)",
+                    _closed: "scaleOut 200ms cubic-bezier(0.22, 1, 0.36, 1)",
+                  },
                 })}
               >
                 <DropdownMenu.Group

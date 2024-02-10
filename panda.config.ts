@@ -114,6 +114,14 @@ const keyframes = defineKeyframes({
     from: { opacity: 1, transform: "scale(1)" },
     to: { opacity: 0, transform: "scale(0.96)" },
   },
+  scaleIn: {
+    from: { opacity: 0, transform: "scale(0)" },
+    to: { opacity: 1, transform: "scale(1)" },
+  },
+  scaleOut: {
+    from: { opacity: 1, transform: "scale(1)" },
+    to: { opacity: 0, transform: "scale(0)" },
+  },
 });
 
 const backgroundColorTransparentize = defineUtility({
