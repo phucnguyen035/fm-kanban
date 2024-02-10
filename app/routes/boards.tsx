@@ -4,6 +4,7 @@ import { css, cx } from "styled-system/css";
 import { hstack, stack, vstack } from "styled-system/patterns";
 import { boardRepo } from "~/.server/data-access/board";
 import IconBoard from "~/components/IconBoard";
+import IconHideSidebar from "~/components/IconHideSidebar";
 import IconShowSidebar from "~/components/IconShowSidebar";
 import Logo from "~/components/Logo";
 
@@ -125,6 +126,7 @@ export default function BoardsLayout() {
                               py: 4,
                               width: "100%",
                               borderRightRadius: "full",
+                              transition: "colors",
                             });
                           }}
                         >
@@ -157,7 +159,21 @@ export default function BoardsLayout() {
         </div>
 
         <div className={css({ px: 6 })}>
-          <button onClick={() => setIsNavCollapsed(true)}>Hide sidebar</button>
+          <button
+            className={css({
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 4,
+              textStyle: "headingM",
+              transition: "colors",
+              color: { base: "grey.medium", _hover: "grey.dark" },
+              cursor: "pointer",
+            })}
+            onClick={() => setIsNavCollapsed(true)}
+          >
+            <IconHideSidebar />
+            Hide sidebar
+          </button>
         </div>
       </nav>
 
