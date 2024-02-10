@@ -7,6 +7,7 @@ export const buttonStyle = cva({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: "3xl",
+    minWidth: 164,
     cursor: {
       base: "pointer",
       _disabled: "not-allowed",
