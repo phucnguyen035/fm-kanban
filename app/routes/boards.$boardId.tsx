@@ -2,11 +2,13 @@ import type { LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { useState } from "react";
 import { css } from "styled-system/css";
-import { hstack, vstack } from "styled-system/patterns";
+import { hstack, stack } from "styled-system/patterns";
 import invariant from "tiny-invariant";
 import { boardRepo } from "~/.server/data-access/board";
 import Button from "~/components/Button";
+import IconEllipsisVertical from "~/components/IconEllipsisVertical";
 import TaskCard from "~/components/TaskCard";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 
 export function loader({ params }: LoaderFunctionArgs) {
   const boardId = parseInt(params.boardId ?? "");
@@ -17,7 +19,9 @@ export function loader({ params }: LoaderFunctionArgs) {
 
 export default function BoardDetailPage() {
   const board = useLoaderData<typeof loader>();
-  const [dialog, setDialog] = useState<"add-column" | "add-task" | "">("");
+  const [dialog, setDialog] = useState<
+    "add-column" | "add-task" | "delete-board" | "edit-board" | ""
+  >("");
 
   return (
     <>
@@ -34,13 +38,49 @@ export default function BoardDetailPage() {
         })}
       >
         <h1 className={css({ textStyle: "headingXL" })}>{board.name}</h1>
-        <div>
+        <div className={hstack({ gap: 6 })}>
           <Button
             disabled={board.columns.length === 0}
             onClick={() => setDialog("add-task")}
           >
             + Add new task
           </Button>
+          <DropdownMenu.Root>
+            <DropdownMenu.Trigger
+              className={css({ color: "grey.medium", cursor: "pointer" })}
+            >
+              <IconEllipsisVertical />
+            </DropdownMenu.Trigger>
+            <DropdownMenu.Portal>
+              <DropdownMenu.Content
+                align="end"
+                sideOffset={24}
+                className={css({
+                  p: 4,
+                  bgColor: { base: "white", _dark: "grey.vDark" },
+                  boxShadow: "lg",
+                  borderRadius: "sm",
+                })}
+              >
+                <DropdownMenu.Group
+                  className={stack({ gap: 4, textStyle: "bodyL", width: 40 })}
+                >
+                  <DropdownMenu.Item
+                    className={css({ color: "grey.medium", cursor: "pointer" })}
+                    onSelect={() => setDialog("edit-board")}
+                  >
+                    Edit board
+                  </DropdownMenu.Item>
+                  <DropdownMenu.Item
+                    className={css({ color: "red.base", cursor: "pointer" })}
+                    onSelect={() => setDialog("delete-board")}
+                  >
+                    Delete board
+                  </DropdownMenu.Item>
+                </DropdownMenu.Group>
+              </DropdownMenu.Content>
+            </DropdownMenu.Portal>
+          </DropdownMenu.Root>
         </div>
       </header>
 
@@ -58,7 +98,8 @@ export default function BoardDetailPage() {
         })}
       >
         <ul
-          className={hstack({
+          className={stack({
+            direction: "row",
             height: "100%",
             gap: 6,
             alignItems: "stretch",
@@ -67,8 +108,7 @@ export default function BoardDetailPage() {
           {board.columns.map((column) => (
             <li
               key={column.id}
-              className={vstack({
-                alignItems: "start",
+              className={stack({
                 gap: 6,
                 minWidth: 280,
               })}
