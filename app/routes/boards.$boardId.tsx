@@ -31,14 +31,13 @@ export default function BoardDetailPage() {
           justifyContent: "space-between",
           px: 6,
           borderBottom: "1px solid",
-          borderBottomColor: {
-            base: "lines.light",
-            _dark: "lines.dark",
-          },
+          borderBottomColor: { base: "lines.light", _dark: "lines.dark" },
+          bgColor: { base: "white", _dark: "grey.vDark" },
+          color: { base: "grey.dark", _dark: "white" },
         })}
       >
         <h1 className={css({ textStyle: "headingXL" })}>{board.name}</h1>
-        <div className={hstack({ gap: 6 })}>
+        <div className={hstack({ gap: 0 })}>
           <Button
             disabled={board.columns.length === 0}
             onClick={() => setDialog("add-task")}
@@ -47,14 +46,19 @@ export default function BoardDetailPage() {
           </Button>
           <DropdownMenu.Root>
             <DropdownMenu.Trigger
-              className={css({ color: "grey.medium", cursor: "pointer" })}
+              className={css({
+                color: "grey.medium",
+                px: 6,
+                py: 4,
+                cursor: "pointer",
+              })}
             >
               <IconEllipsisVertical />
             </DropdownMenu.Trigger>
             <DropdownMenu.Portal>
               <DropdownMenu.Content
                 align="end"
-                sideOffset={24}
+                sideOffset={16}
                 className={css({
                   p: 4,
                   bgColor: { base: "white", _dark: "grey.vDark" },
@@ -151,7 +155,11 @@ export default function BoardDetailPage() {
               className={css({
                 width: "100%",
                 height: "100%",
-                bg: "linear-gradient(180deg, #E9EFFA 0%, rgba(233, 239, 250, 0.50) 100%)",
+                bg: {
+                  base: "linear-gradient(180deg, #E9EFFA 0%, rgba(233, 239, 250, 0.50) 100%)",
+                  _dark:
+                    "linear-gradient(180deg, rgba(43, 44, 55, 0.25) 0%, rgba(43, 44, 55, 0.13) 100%)",
+                },
                 cursor: "pointer",
                 textStyle: "headingXL",
                 textTransform: "capitalize",
