@@ -41,8 +41,11 @@ const tokens = defineTokens({
       },
     },
     lines: {
-      base: {
+      dark: {
         value: "hsla(235, 12%, 27%, 1)",
+      },
+      light: {
+        value: "hsla(221, 69%, 94%, 1)",
       },
     },
   },
