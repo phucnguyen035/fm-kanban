@@ -1,9 +1,11 @@
 import type { LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import { useState } from "react";
 import { css } from "styled-system/css";
 import { hstack, vstack } from "styled-system/patterns";
 import invariant from "tiny-invariant";
 import { boardRepo } from "~/.server/data-access/board";
+import Button from "~/components/Button";
 import TaskCard from "~/components/TaskCard";
 
 export function loader({ params }: LoaderFunctionArgs) {
@@ -15,6 +17,7 @@ export function loader({ params }: LoaderFunctionArgs) {
 
 export default function BoardDetailPage() {
   const board = useLoaderData<typeof loader>();
+  const [dialog, setDialog] = useState<"add-column" | "add-task" | "">("");
 
   return (
     <>
@@ -32,7 +35,12 @@ export default function BoardDetailPage() {
       >
         <h1 className={css({ textStyle: "headingXL" })}>{board.name}</h1>
         <div>
-          <button>+ Add new task</button>
+          <Button
+            disabled={board.columns.length === 0}
+            onClick={() => setDialog("add-task")}
+          >
+            + Add new task
+          </Button>
         </div>
       </header>
 
@@ -104,7 +112,7 @@ export default function BoardDetailPage() {
                 color: "grey.medium",
               })}
               onClick={() => {
-                // TODO: Implement
+                setDialog("add-column");
               }}
             >
               + New column
