@@ -1,9 +1,10 @@
+import type { ReactNode } from "react";
 import { css } from "styled-system/css";
 import { vstack } from "styled-system/patterns";
 import type { TaskStatus } from "~/.server/data-access/task/schema";
 
 type Props = {
-  title: string;
+  title: ReactNode;
   subTasks: Array<{ status: TaskStatus }>;
 };
 
