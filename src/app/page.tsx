@@ -1,3 +1,7 @@
 export default function Home() {
-	return <main className="mx-4 grid dark:mx-6">Hello world</main>;
+	return (
+		<main className="dark mx-4 grid">
+			<button className="bg-primary">Hello world</button>
+		</main>
+	);
 }
