@@ -1,7 +1,9 @@
+import { Button } from "@/components/Button";
+
 export default function Home() {
 	return (
-		<main className="dark mx-4 grid">
-			<button className="bg-primary">Hello world</button>
+		<main className="dark mx-4 flex gap-4">
+			<Button>Button</Button>
 		</main>
 	);
 }
