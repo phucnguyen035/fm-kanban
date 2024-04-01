@@ -21,24 +21,26 @@ export default async function RootLayout({
 
 	return (
 		<html lang="en">
-			<body
-				className={cn(
-					font.className,
-					" grid h-dvh grid-rows-[var(--header-height),1fr] overflow-y-hidden text-bodyL text-black [--header-height:theme(spacing.16)] md:grid-cols-[260px,1fr] md:[--header-height:theme(spacing.20)] xl:grid-cols-[300px,1fr] xl:[--header-height:theme(spacing.24)] dark:bg-gray-dark dark:text-white",
-				)}
-			>
-				<aside className="row-span-2 hidden border-r border-r-lines-light md:block dark:border-r-lines-dark">
-					<h2 className="px-8 text-headingS uppercase text-gray-medium">
-						All boards ({boards.length})
-					</h2>
+			<body>
+				<div
+					className={cn(
+						font.className,
+						" grid h-dvh w-dvw grid-rows-[var(--header-height),1fr] overflow-hidden overflow-y-hidden text-bodyL text-black [--header-height:theme(spacing.16)] md:grid-cols-[260px,1fr] md:[--header-height:theme(spacing.20)] xl:grid-cols-[300px,1fr] xl:[--header-height:theme(spacing.24)] dark:bg-gray-dark dark:text-white",
+					)}
+				>
+					<aside className="row-span-2 hidden border-r border-r-lines-light md:block dark:border-r-lines-dark">
+						<h2 className="px-8 text-headingS uppercase text-gray-medium">
+							All boards ({boards.length})
+						</h2>
 
-					<ul className="pr-6">
-						{boards.map((board) => (
-							<BoardItem key={board.id} id={board.id} name={board.name} />
-						))}
-					</ul>
-				</aside>
-				{children}
+						<ul className="pr-6">
+							{boards.map((board) => (
+								<BoardItem key={board.id} id={board.id} name={board.name} />
+							))}
+						</ul>
+					</aside>
+					{children}
+				</div>
 			</body>
 		</html>
 	);
