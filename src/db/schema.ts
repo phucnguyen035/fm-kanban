@@ -1,11 +1,12 @@
 import { relations } from "drizzle-orm";
-import { boolean, pgTableCreator, uuid, varchar } from "drizzle-orm/pg-core";
+import { boolean, pgTableCreator, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
 
 export const tableCreator = pgTableCreator((name) => `fm_kanban_${name}`);
 
 export const boards = tableCreator("boards", {
 	id: uuid("id").primaryKey().defaultRandom(),
 	name: varchar("name").notNull().unique(),
+	createdAt: timestamp("created_at", { mode: "date" }).notNull().defaultNow(),
 });
 
 export const boardRelations = relations(boards, ({ many }) => ({
@@ -31,6 +32,8 @@ export const columnRelations = relations(columns, ({ one, many }) => ({
 export const tasks = tableCreator("tasks", {
 	id: uuid("id").primaryKey().defaultRandom(),
 	name: varchar("name").notNull(),
+	createdAt: timestamp("created_at", { mode: "date" }).notNull().defaultNow(),
+	updatedAt: timestamp("updated_at", { mode: "date" }).notNull().defaultNow(),
 	columnId: uuid("column_id")
 		.notNull()
 		.references(() => columns.id, { onDelete: "cascade" }),
