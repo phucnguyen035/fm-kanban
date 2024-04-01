@@ -1,5 +1,4 @@
 import { createTV, cn as libCn, type CnOptions } from "tailwind-variants";
-export type { VariantProps } from "tailwind-variants";
 
 const twMergeConfig = {
 	extend: {
