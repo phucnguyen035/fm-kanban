@@ -1,5 +1,5 @@
 "use client";
-import { VariantProps, tv } from "@/utils/tw";
+import { VariantProps, tv } from "@/utils/tv";
 import { forwardRef, type ButtonHTMLAttributes } from "react";
 
 export const buttonClass = tv({
