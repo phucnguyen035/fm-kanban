@@ -4,7 +4,7 @@ import { boolean, pgTableCreator, uuid, varchar } from "drizzle-orm/pg-core";
 export const tableCreator = pgTableCreator((name) => `fm_kanban_${name}`);
 
 export const boards = tableCreator("boards", {
-	id: uuid("id").primaryKey(),
+	id: uuid("id").primaryKey().defaultRandom(),
 	name: varchar("name").notNull().unique(),
 });
 
@@ -13,7 +13,7 @@ export const boardRelations = relations(boards, ({ many }) => ({
 }));
 
 export const columns = tableCreator("columns", {
-	id: uuid("id").primaryKey(),
+	id: uuid("id").primaryKey().defaultRandom(),
 	name: varchar("name").notNull(),
 	boardId: uuid("board_id")
 		.notNull()
@@ -29,7 +29,7 @@ export const columnRelations = relations(columns, ({ one, many }) => ({
 }));
 
 export const tasks = tableCreator("tasks", {
-	id: uuid("id").primaryKey(),
+	id: uuid("id").primaryKey().defaultRandom(),
 	name: varchar("name").notNull(),
 	columnId: uuid("column_id")
 		.notNull()
@@ -45,7 +45,7 @@ export const taskRelations = relations(tasks, ({ one, many }) => ({
 }));
 
 export const subTasks = tableCreator("sub_tasks", {
-	id: uuid("id").primaryKey(),
+	id: uuid("id").primaryKey().defaultRandom(),
 	name: varchar("name").notNull(),
 	completed: boolean("completed").notNull().default(false),
 	taskId: uuid("task_id")
