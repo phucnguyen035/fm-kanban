@@ -1,9 +1,7 @@
-import { Button } from "@/components/Button";
-
-export default function Home() {
+export default async function Home() {
 	return (
-		<main className="dark mx-4 flex gap-4">
-			<Button>Button</Button>
+		<main className="row-span-2 grid place-items-center bg-gray-light">
+			<h1 className="text-headingXL text-gray-medium">Select a board to get started</h1>
 		</main>
 	);
 }
