@@ -14,9 +14,11 @@ export default function RootLayout({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
+	const className = [font.className, "text-bodyL"].join(" ");
+
 	return (
 		<html lang="en">
-			<body className={font.className}>{children}</body>
+			<body className={className}>{children}</body>
 		</html>
 	);
 }
