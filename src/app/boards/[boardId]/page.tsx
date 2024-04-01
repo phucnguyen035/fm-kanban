@@ -2,6 +2,9 @@ import { Button } from "@/components/Button";
 import Container from "@/components/Container";
 import IconEllipsis from "@/components/IconEllipsis";
 import IconPlus from "@/components/IconPlus";
+import Select from "@/components/Select";
+import SubtaskCheckbox from "@/components/SubtaskCheckbox";
+import TextField from "@/components/TextField";
 import { db } from "@/db";
 
 type Props = {
@@ -58,7 +61,16 @@ export default async function Page({ params }: Props) {
 				</header>
 			}
 		>
-			<p>Hello {board.name}</p>
+			<div className="space-y-4 bg-white p-4 dark:bg-gray-dark">
+				<Select
+					placeholder="Select a status"
+					options={[
+						{ label: "Doing", value: "doing" },
+						{ label: "Done", value: "done" },
+						{ label: "To do", value: "to-do" },
+					]}
+				/>
+			</div>
 		</Container>
 	);
 }
