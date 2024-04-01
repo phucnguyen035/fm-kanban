@@ -28,46 +28,46 @@ export default {
 		},
 		fontSize: {
 			headingXL: [
-				"1.5em",
+				"1.5rem",
 				{
 					fontWeight: 700,
-					lineHeight: "1.875em",
+					lineHeight: "1.875rem",
 				},
 			],
 			headingL: [
-				"1.125em",
+				"1.125rem",
 				{
 					fontWeight: 700,
-					lineHeight: "1.4375em",
+					lineHeight: "1.4375rem",
 				},
 			],
 			headingM: [
-				"0.9375em",
+				"0.9375rem",
 				{
 					fontWeight: 700,
-					lineHeight: "1.1875em",
+					lineHeight: "1.1875rem",
 				},
 			],
 			headingS: [
-				"0.75em",
+				"0.75rem",
 				{
 					fontWeight: 700,
-					lineHeight: "1em",
-					letterSpacing: "0.15em",
+					lineHeight: "1rem",
+					letterSpacing: "0.15rem",
 				},
 			],
 			bodyL: [
-				"0.8125em",
+				"0.8125rem",
 				{
 					fontWeight: 500,
-					lineHeight: "1.4375em",
+					lineHeight: "1.4375rem",
 				},
 			],
 			bodyM: [
-				"0.75em",
+				"0.75rem",
 				{
 					fontWeight: 700,
-					lineHeight: "0.9375em",
+					lineHeight: "0.9375rem",
 				},
 			],
 		},
