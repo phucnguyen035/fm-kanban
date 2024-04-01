@@ -3,7 +3,7 @@ import { VariantProps, tv } from "@/utils/tv";
 import { forwardRef, type ButtonHTMLAttributes } from "react";
 
 export const buttonClass = tv({
-	base: "rounded-[1.25rem] px-4.5 text-headingM transition-all active:scale-[0.99]",
+	base: "px-4.5 text-headingM transition-all active:scale-[0.99]",
 	variants: {
 		color: {
 			primary: "bg-primary text-white hover:bg-primary-light",
@@ -11,8 +11,8 @@ export const buttonClass = tv({
 			danger: "bg-danger text-white hover:bg-danger-light",
 		},
 		size: {
-			small: "h-10",
-			large: "h-12",
+			small: "h-10 rounded-[1.25rem]",
+			large: "h-12 rounded-3xl",
 		},
 	},
 	defaultVariants: {
